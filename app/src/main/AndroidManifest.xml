@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BOM.noActionBar">
         <activity
-            android:name=".SignInActivity"
+            android:name=".signin.SignInActivity"
             android:exported="true" />
         <activity
             android:name=".SplashScreenActivity"
