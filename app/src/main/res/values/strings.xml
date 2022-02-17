@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">bom</string>
+    <string name="sign_in_account">Sign In Account</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Create New Account</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
 </resources>
