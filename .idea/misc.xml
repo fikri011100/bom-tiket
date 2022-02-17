@@ -5,9 +5,11 @@
       <map>
         <entry key="..\:/5. Project/bom-tiket/app/src/main/res/drawable/shape_rectangle_blue_grey.xml" value="0.29635416666666664" />
         <entry key="..\:/5. Project/bom-tiket/app/src/main/res/drawable/shape_rectangle_blue_primary_btn.xml" value="0.29635416666666664" />
+        <entry key="..\:/5. Project/bom-tiket/app/src/main/res/layout/activity_home.xml" value="0.28020833333333334" />
         <entry key="..\:/5. Project/bom-tiket/app/src/main/res/layout/activity_main.xml" value="0.20885416666666667" />
         <entry key="..\:/5. Project/bom-tiket/app/src/main/res/layout/activity_sign.xml" value="0.20885416666666667" />
         <entry key="..\:/5. Project/bom-tiket/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
+        <entry key="..\:/5. Project/bom-tiket/app/src/main/res/layout/activity_sign_up.xml" value="0.19202898550724637" />
         <entry key="..\:/5. Project/bom-tiket/app/src/main/res/layout/activity_splash_screen.xml" value="0.17028985507246377" />
       </map>
     </option>
