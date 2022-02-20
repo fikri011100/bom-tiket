@@ -3,14 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/5. Project/bom-tiket/app/src/main/res/drawable/shape_rectangle_blue_grey.xml" value="0.29635416666666664" />
-        <entry key="..\:/5. Project/bom-tiket/app/src/main/res/drawable/shape_rectangle_blue_primary_btn.xml" value="0.29635416666666664" />
-        <entry key="..\:/5. Project/bom-tiket/app/src/main/res/layout/activity_home.xml" value="0.28020833333333334" />
-        <entry key="..\:/5. Project/bom-tiket/app/src/main/res/layout/activity_main.xml" value="0.20885416666666667" />
-        <entry key="..\:/5. Project/bom-tiket/app/src/main/res/layout/activity_sign.xml" value="0.20885416666666667" />
-        <entry key="..\:/5. Project/bom-tiket/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
-        <entry key="..\:/5. Project/bom-tiket/app/src/main/res/layout/activity_sign_up.xml" value="0.19202898550724637" />
-        <entry key="..\:/5. Project/bom-tiket/app/src/main/res/layout/activity_splash_screen.xml" value="0.17028985507246377" />
+        <entry key="..\:/Users/I'm/AndroidStudioProjects/bom/app/src/main/res/drawable/bg_color_white_rounded.xml" value="0.2515625" />
+        <entry key="..\:/Users/I'm/AndroidStudioProjects/bom/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.25104166666666666" />
+        <entry key="..\:/Users/I'm/AndroidStudioProjects/bom/app/src/main/res/drawable/shape_rectangle_blue_primary_btn.xml" value="0.265625" />
+        <entry key="..\:/Users/I'm/AndroidStudioProjects/bom/app/src/main/res/font/.xml" value="0.2796875" />
+        <entry key="..\:/Users/I'm/AndroidStudioProjects/bom/app/src/main/res/font/montez.xml" value="0.2796875" />
+        <entry key="..\:/Users/I'm/AndroidStudioProjects/bom/app/src/main/res/font/montserrat.xml" value="0.2796875" />
+        <entry key="..\:/Users/I'm/AndroidStudioProjects/bom/app/src/main/res/font/montserrat_alternates_semibold.xml" value="0.2796875" />
+        <entry key="..\:/Users/I'm/AndroidStudioProjects/bom/app/src/main/res/font/montserrat_alternates_thin.xml" value="0.2796875" />
+        <entry key="..\:/Users/I'm/AndroidStudioProjects/bom/app/src/main/res/font/montserrat_medium.xml" value="0.2796875" />
+        <entry key="..\:/Users/I'm/AndroidStudioProjects/bom/app/src/main/res/font/montserrat_semibold.xml" value="0.2796875" />
+        <entry key="..\:/Users/I'm/AndroidStudioProjects/bom/app/src/main/res/font/montserrat_subrayada.xml" value="0.2796875" />
+        <entry key="..\:/Users/I'm/AndroidStudioProjects/bom/app/src/main/res/layout/activity_booking_payment.xml" value="0.25" />
+        <entry key="..\:/Users/I'm/AndroidStudioProjects/bom/app/src/main/res/layout/activity_main.xml" value="0.125" />
+        <entry key="..\:/Users/I'm/AndroidStudioProjects/bom/app/src/main/res/layout/activity_sign_in.xml" value="0.17753623188405798" />
+        <entry key="..\:/Users/I'm/AndroidStudioProjects/bom/app/src/main/res/layout/fragment_bottom_payment_dialog.xml" value="0.22083333333333333" />
+        <entry key="..\:/Users/I'm/AndroidStudioProjects/bom/app/src/main/res/layout/fragment_home.xml" value="0.1359375" />
+        <entry key="..\:/Users/I'm/AndroidStudioProjects/bom/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.125" />
       </map>
     </option>
   </component>
