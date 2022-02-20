@@ -16,10 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BOM.noActionBar">
         <activity
-            android:name=".payment.BookingPaymentActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SignUpActivity"
+            android:name=".signin.SignUpActivity"
             android:exported="true" />
         <activity
             android:name=".HomeActivity"
@@ -27,12 +24,6 @@
         <activity
             android:name=".signin.SignInActivity"
             android:exported="true" />
-        <activity
-            android:name=".BookingTicketActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ProfileActivity"
-            android:exported="false" />
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true">

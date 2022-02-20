@@ -13,7 +13,7 @@ import bncc.net.bom.api.APIClient
 import bncc.net.bom.model.FilterDialog
 import bncc.net.bom.model.Movie
 import bncc.net.bom.model.MovieResponse
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_home.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -21,14 +21,14 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
     lateinit var adapter : MovieAdapter
     lateinit var retrofit : Retrofit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_home)
         adapter = MovieAdapter(Vector(), onclick ={ layout : ConstraintLayout, movie : Movie ->
             layout.setOnClickListener(View.OnClickListener {
                 var intent = Intent(it.context,MovieDetailActivity::class.java)
