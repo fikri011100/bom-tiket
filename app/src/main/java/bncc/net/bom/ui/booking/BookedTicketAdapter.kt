@@ -1,4 +1,4 @@
-package bncc.net.bom
+package bncc.net.bom.ui.booking
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,8 +6,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import bncc.net.bom.R
+import bncc.net.bom.model.Ticket
 import com.bumptech.glide.Glide
-import org.w3c.dom.Text
 
 class BookedTicketAdapter(private val bookedTickets:ArrayList<Ticket>) : RecyclerView.Adapter<BookedTicketAdapter.ViewHolder>() {
 

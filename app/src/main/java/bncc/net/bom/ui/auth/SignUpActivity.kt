@@ -1,7 +1,8 @@
-package bncc.net.bom
+package bncc.net.bom.ui.auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import bncc.net.bom.R
 
 class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

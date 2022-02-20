@@ -1,10 +1,10 @@
-package bncc.net.bom
+package bncc.net.bom.ui.auth
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import bncc.net.bom.signin.SignInActivity
+import bncc.net.bom.R
 
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

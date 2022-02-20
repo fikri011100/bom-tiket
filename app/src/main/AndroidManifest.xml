@@ -14,18 +14,24 @@
         android:label="BOM"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BOM.noActionBar">
+        android:theme="@style/Theme.BOM">
         <activity
-            android:name=".signin.SignUpActivity"
+            android:name=".ui.home.HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.payment.BookingPaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.auth.SignUpActivity"
             android:exported="true" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".ui.auth.SignInActivity"
             android:exported="true" />
         <activity
-            android:name=".signin.SignInActivity"
-            android:exported="true" />
+            android:name=".ui.booking.BookingTicketActivity"
+            android:exported="false" />
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".ui.auth.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,7 +39,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-		<activity android:name=".MovieDetailActivity"></activity>
+        <activity android:name=".ui.movie.MovieDetailActivity" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

@@ -7,7 +7,7 @@
         android:title="Home" />
 
     <item
-        android:id="@+id/menu_payment"
+        android:id="@+id/menu_topup"
         android:enabled="true"
         android:icon="@drawable/ic_wallet"
         android:title="Payment" />

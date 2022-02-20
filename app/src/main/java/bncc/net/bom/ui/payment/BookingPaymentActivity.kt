@@ -1,8 +1,7 @@
-package bncc.net.bom.payment
+package bncc.net.bom.ui.payment
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.DialogFragment
 import bncc.net.bom.R
 import bncc.net.bom.utils.dialog.PaymentTypeDialogFragment
 import kotlinx.android.synthetic.main.activity_booking_payment.*

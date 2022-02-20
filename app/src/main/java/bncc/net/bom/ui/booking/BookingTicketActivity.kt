@@ -1,16 +1,19 @@
-package bncc.net.bom
+package bncc.net.bom.ui.booking
 
 import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import bncc.net.bom.*
+import bncc.net.bom.model.Ticket
+import bncc.net.bom.ui.booking.adapter.SelectedSeatAdapter
+import bncc.net.bom.utils.dialog.DateBottomDialogFragment
+import bncc.net.bom.utils.dialog.TimeBottomDialogFragment
 import com.bumptech.glide.Glide
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import org.w3c.dom.Text
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -27,7 +30,7 @@ class BookingTicketActivity : AppCompatActivity() {
     private var selectedSeatList = ArrayList<String>()
     private lateinit var rv_selected_seat:RecyclerView
     private lateinit var tv_selected_seat:TextView
-    private lateinit var seatAdapter:SelectedSeatAdapter
+    private lateinit var seatAdapter: SelectedSeatAdapter
     private lateinit var database:DatabaseReference
     private lateinit var imageUrl:String
     private lateinit var username:String

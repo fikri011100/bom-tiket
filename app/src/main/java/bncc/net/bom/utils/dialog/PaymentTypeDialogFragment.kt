@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import bncc.net.bom.R
-import bncc.net.bom.payment.BookingPaymentActivity
+import bncc.net.bom.ui.payment.BookingPaymentActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_payment_type_dialog.*
 
@@ -23,22 +23,21 @@ class PaymentTypeDialogFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         text_dana.setOnClickListener {
-            goToBookingPayment(text_dana.text.toString())
+            (activity as BookingPaymentActivity?)?.setPaymentType(text_dana.text.toString())
+            dismiss()
         }
         text_gopay.setOnClickListener {
-            goToBookingPayment(text_gopay.text.toString())
+            (activity as BookingPaymentActivity?)?.setPaymentType(text_gopay.text.toString())
+            dismiss()
         }
         text_ovo.setOnClickListener {
-            goToBookingPayment(text_ovo.text.toString())
+            (activity as BookingPaymentActivity?)?.setPaymentType(text_ovo.text.toString())
+            dismiss()
         }
         text_shopee.setOnClickListener {
-            goToBookingPayment(text_shopee.text.toString())
+            (activity as BookingPaymentActivity?)?.setPaymentType(text_shopee.text.toString())
+            dismiss()
         }
-    }
-
-    fun goToBookingPayment(data: String) {
-        (activity as BookingPaymentActivity?)?.setPaymentType(data)
-        dismiss()
     }
 
 }
