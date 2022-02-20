@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.Toast
 import bncc.net.bom.R
 import bncc.net.bom.model.User
+import bncc.net.bom.ui.home.HomeActivity
 import bncc.net.bom.ui.payment.BookingPaymentActivity
 import com.google.firebase.database.*
 
@@ -65,7 +66,7 @@ class SignInActivity : AppCompatActivity() {
                         Toast.LENGTH_LONG).show()
                 } else {
                     if (user.password.equals(iPassword)) {
-                        var intent = Intent(this@SignInActivity, BookingPaymentActivity::class.java)
+                        var intent = Intent(this@SignInActivity, HomeActivity::class.java)
                         startActivity(intent)
                     } else {
                         Toast.makeText(this@SignInActivity, "Password Anda Salah",

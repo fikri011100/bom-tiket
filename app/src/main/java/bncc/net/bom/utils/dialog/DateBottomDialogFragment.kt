@@ -1,4 +1,4 @@
-package bncc.net.bom
+package bncc.net.bom.utils.dialog
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.NumberPicker
+import bncc.net.bom.R
+import bncc.net.bom.ui.booking.BookingTicketActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class DateBottomDialogFragment(var dummySeatLetter:Array<String>, var dummySeatNumber:Array<String>):BottomSheetDialogFragment() {

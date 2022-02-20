@@ -1,4 +1,4 @@
-package bncc.net.bom
+package bncc.net.bom.model
 
 class Ticket {
     var title:String ?= ""

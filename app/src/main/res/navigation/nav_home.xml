@@ -10,4 +10,14 @@
         android:name="bncc.net.bom.ui.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/menu_profile"
+        android:name="bncc.net.bom.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/menu_topup"
+        android:name="bncc.net.bom.ui.payment.TopupFragment"
+        android:label="fragment_topup"
+        tools:layout="@layout/fragment_topup" />
 </navigation>

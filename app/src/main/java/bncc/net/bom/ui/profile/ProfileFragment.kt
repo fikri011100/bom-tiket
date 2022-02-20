@@ -5,30 +5,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import bncc.net.bom.ui.booking.BookedTicketAdapter
 import bncc.net.bom.R
+import bncc.net.bom.model.Ticket
+import com.bumptech.glide.Glide
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.fragment_profile.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ProfileFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ProfileFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private val bookedTicketList = ArrayList<Ticket>()
+    private lateinit var database: DatabaseReference
+    private lateinit var ticketAdapter: BookedTicketAdapter
+    private var numOfTicket = 0
+    private lateinit var username:String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,23 +31,57 @@ class ProfileFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ProfileFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ProfileFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        username = "1"
+
+        database = FirebaseDatabase.getInstance("https://bom-ticket-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference()
+
+
+
+
+        tv_loading.visibility = View.VISIBLE
+        tv_loading.text = "Loading result..."
+
+        database.child("User").child(username).get().addOnSuccessListener {
+            tv_name.text = it.child("nama").value.toString()
+            tv_balance.text = "IDR " + it.child("saldo").value.toString()
+            Glide.with(this).load(it.child("url").value.toString()).into(iv_profile)
+        }.addOnFailureListener {
+
+        }
+
+        database.child("User").child(username).child("numofticket").get().addOnSuccessListener {
+            if(it.exists()) {
+                numOfTicket = Integer.parseInt(it.value.toString())
+
+                database.child("User").child(username).child("tickets").get().addOnSuccessListener {
+                    for(i in 1..numOfTicket) {
+                        val ticket = Ticket()
+                        ticket.title = it.child(i.toString()).child("title").value.toString()
+                        ticket.image = it.child(i.toString()).child("image").value.toString()
+                        ticket.date = it.child(i.toString()).child("date").value.toString()
+                        ticket.time = it.child(i.toString()).child("time").value.toString()
+                        ticket.ticketId = it.child(i.toString()).child("ticketId").value.toString()
+                        ticket.seat = it.child(i.toString()).child("seat").value.toString()
+
+                        bookedTicketList.add(ticket)
+                    }
+                    tv_loading.visibility = View.INVISIBLE
+                    ticketAdapter.notifyDataSetChanged()
+
+                }.addOnFailureListener {
+
                 }
             }
+            else {
+                tv_loading.text = "You have no booked ticket"
+            }
+        }.addOnFailureListener {
+        }
+
+        rv_booked_ticket.layoutManager = LinearLayoutManager(requireContext())
+        ticketAdapter = BookedTicketAdapter(bookedTicketList)
+        rv_booked_ticket.adapter = ticketAdapter
     }
 }

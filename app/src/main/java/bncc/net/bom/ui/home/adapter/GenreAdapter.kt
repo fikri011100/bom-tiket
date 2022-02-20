@@ -1,4 +1,4 @@
-package bncc.net.bom.adapter
+package bncc.net.bom.ui.home.adapter
 
 import android.view.LayoutInflater
 import android.view.View

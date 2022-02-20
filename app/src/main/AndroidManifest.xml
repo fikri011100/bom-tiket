@@ -14,7 +14,7 @@
         android:label="BOM"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BOM.noActionBar">
+        android:theme="@style/Theme.BOM">
         <activity
             android:name=".ui.home.HomeActivity"
             android:exported="false" />
@@ -28,7 +28,7 @@
             android:name=".ui.auth.SignInActivity"
             android:exported="true" />
         <activity
-            android:name=".BookingTicketActivity"
+            android:name=".ui.booking.BookingTicketActivity"
             android:exported="false" />
         <activity
             android:name=".ProfileActivity"

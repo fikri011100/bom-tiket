@@ -12,7 +12,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import bncc.net.bom.ui.movie.MovieDetailActivity
 import bncc.net.bom.R
-import bncc.net.bom.adapter.MovieAdapter
+import bncc.net.bom.ui.home.adapter.MovieAdapter
 import bncc.net.bom.api.APIClient
 import bncc.net.bom.utils.dialog.FilterDialog
 import bncc.net.bom.model.Movie

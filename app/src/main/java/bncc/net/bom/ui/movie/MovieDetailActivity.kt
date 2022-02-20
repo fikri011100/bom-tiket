@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import bncc.net.bom.R
-import bncc.net.bom.adapter.GenreAdapter
+import bncc.net.bom.ui.home.adapter.GenreAdapter
 import bncc.net.bom.api.APIClient
 import bncc.net.bom.model.Movie
 import bncc.net.bom.model.TrailerResponse
