@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BOM.noActionBar">
         <activity
+            android:name=".payment.BookingPaymentActivity"
+            android:exported="false" />
+        <activity
             android:name=".SignUpActivity"
             android:exported="true" />
         <activity
