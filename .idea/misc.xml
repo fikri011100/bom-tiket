@@ -20,10 +20,24 @@
         <entry key="..\:/Users/I'm/AndroidStudioProjects/bom/app/src/main/res/layout/fragment_bottom_payment_dialog.xml" value="0.22083333333333333" />
         <entry key="..\:/Users/I'm/AndroidStudioProjects/bom/app/src/main/res/layout/fragment_home.xml" value="0.1359375" />
         <entry key="..\:/Users/I'm/AndroidStudioProjects/bom/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/activity_booking_ticket.xml" value="0.20520833333333333" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.20520833333333333" />
+        <entry key="app/src/main/res/layout/activity_movie_detail.xml" value="0.20520833333333333" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.20520833333333333" />
+        <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.20520833333333333" />
+        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.20520833333333333" />
+        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.20520833333333333" />
+        <entry key="app/src/main/res/layout/booked_ticket_item.xml" value="0.20520833333333333" />
+        <entry key="app/src/main/res/layout/dialog_filter.xml" value="0.20520833333333333" />
+        <entry key="app/src/main/res/layout/fragment_payment_type_dialog.xml" value="0.20520833333333333" />
+        <entry key="app/src/main/res/layout/item_genre.xml" value="0.20520833333333333" />
+        <entry key="app/src/main/res/layout/one_bottom_dialog.xml" value="0.20520833333333333" />
+        <entry key="app/src/main/res/layout/selected_seat_item.xml" value="0.20520833333333333" />
+        <entry key="app/src/main/res/layout/two_bottom_dialog.xml" value="0.20520833333333333" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
