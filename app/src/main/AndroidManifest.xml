@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <uses-permission-sdk-23 android:name="android.permission.INTERNET" />
     <uses-permission-sdk-23 android:name="android.permission.ACCESS_WIFI_STATE" />
 
@@ -14,24 +15,21 @@
         android:label="BOM"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BOM">
+        android:theme="@style/Theme.BOM.noActionBar">
         <activity
-            android:name=".ui.home.HomeActivity"
+            android:name=".BookingTicketPaymentSuccessActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.payment.BookingPaymentActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.auth.SignUpActivity"
+            android:name=".signin.SignUpActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.auth.SignInActivity"
+            android:name=".HomeActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.booking.BookingTicketActivity"
-            android:exported="false" />
+            android:name=".signin.SignInActivity"
+            android:exported="true" />
         <activity
-            android:name=".ui.auth.SplashScreenActivity"
+            android:name=".SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,7 +37,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.movie.MovieDetailActivity" />
+        <activity android:name=".MovieDetailActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
