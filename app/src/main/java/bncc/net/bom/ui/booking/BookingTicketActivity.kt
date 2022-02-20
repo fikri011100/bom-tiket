@@ -51,13 +51,15 @@ class BookingTicketActivity : AppCompatActivity() {
         // TODO ("Butuh oper username dari pas user login buat akses firebase, ganti masukin ke variable username dibawah ini")
         username = intent.extras?.getString("username").toString()
 
+        var price = intent.extras?.getString("price").toString()
+
         database = FirebaseDatabase.getInstance("https://bom-ticket-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference()
         // set data (image, title) data from movie detail activity
         imageUrl = intent.extras?.getString("image").toString()
         tvMovieTitle = findViewById(R.id.tv_movie_title)
         tvMovieTitle.setText(intent.extras?.getString("title").toString())
         tvPrice = findViewById(R.id.tv_price)
-        tvPrice.setText("IDR " + intent.extras?.getString("price").toString() + "/ticket")
+        tvPrice.setText("IDR " + price + "/ticket")
         ivMovie = findViewById(R.id.iv_movie)
         Glide.with(this).load(imageUrl).into(ivMovie)
 
@@ -139,7 +141,7 @@ class BookingTicketActivity : AppCompatActivity() {
                 val intent = Intent(this, BookingPaymentActivity::class.java)
                 intent.putExtra("username", username)
                 intent.putExtra("title", tvMovieTitle.text)
-                intent.putExtra("price", tvPrice.text)
+                intent.putExtra("price", price)
                 intent.putExtra("image", imageUrl)
                 intent.putExtra("bookedDate", date.toString())
                 intent.putExtra("bookedTime", time.toString())
@@ -149,53 +151,6 @@ class BookingTicketActivity : AppCompatActivity() {
         }
 
     }
-
-//    private fun saveTicketToFirebase(date:String, time:String) {
-//        var ticketId = 0
-//        val ticket = Ticket()
-//        var processStatus = false
-//        val intent = Intent(this, BookingPaymentActivity::class.java)
-////        GlobalScope.launch {
-//            database.child("User").child(username).get().addOnSuccessListener {
-//                if (it.child("numofticket").exists()) {
-//                    ticketId = Integer.parseInt(it.child("numofticket").value.toString())
-//                    ticketId++
-//                } else {
-//                    ticketId = 1
-//                }
-//
-//                ticket.title = tvMovieTitle.text.toString()
-//                ticket.date = date
-//                ticket.time = time
-//                ticket.ticketId = ticketId.toString()
-//                ticket.image = imageUrl
-//
-//                var seatNumberText = ""
-//                seatNumberText += selectedSeatList[0]
-//                for (i in 1..(selectedSeatList.size - 1)) {
-//                    seatNumberText = seatNumberText + ", " + selectedSeatList[i]
-//                }
-//                ticket.seat = seatNumberText
-//
-////                database.child("User").child(username).child("tickets").child(ticketId.toString()).setValue(ticket)
-////                database.child("User").child(username).child("numofticket").setValue(ticketId.toString())
-//
-//                Log.i("TAG", "saveTicketToFirebase: MASIH DISINI")
-////                processStatus = true
-//
-//            }.addOnFailureListener {
-//            }
-////        }
-////        runBlocking {
-////            delay(1000)
-////        }
-//        Log.i("TAG", "saveTicketToFirebase: INI DIBAWAH")
-//
-//        intent.putExtra("bookedDate", date)
-//        intent.putExtra("bookedTime", time)
-////            intent.putExtra("bookedSeat", selectedSeatList)
-//        startActivity(intent)
-//    }
 
     fun setTime(time:String) {
         etTime.setText(time)

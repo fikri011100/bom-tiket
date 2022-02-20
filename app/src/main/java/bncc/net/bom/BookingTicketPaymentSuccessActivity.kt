@@ -9,6 +9,11 @@ import bncc.net.bom.model.Ticket
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_booking_payment.*
+import kotlinx.android.synthetic.main.activity_booking_payment.tv_date
+import kotlinx.android.synthetic.main.activity_booking_payment.tv_seat
+import kotlinx.android.synthetic.main.activity_booking_payment.tv_time
+import kotlinx.android.synthetic.main.activity_booking_payment.tv_title
+import kotlinx.android.synthetic.main.activity_booking_ticket_payment_success.*
 
 class BookingTicketPaymentSuccessActivity : AppCompatActivity() {
 
@@ -28,6 +33,15 @@ class BookingTicketPaymentSuccessActivity : AppCompatActivity() {
         var bookedTime = intent.extras?.getString("bookedTime")
         var bookedSeat = intent.extras?.getString("bookedSeat")
         var paymentType = intent.extras?.getString("paymentType")
+        var convertSeat = bookedSeat?.split(", ")?.toTypedArray()
+
+        tv_title.text = title
+        tv_date.text = bookedDate
+        tv_time.text = bookedTime
+        tv_seat.text = bookedSeat
+        tv_type.text = paymentType
+        tv_total.text = payment
+        tv_person.text = convertSeat?.size.toString() + " person"
 
         var ticketId = 0
         database.child(username).get().addOnSuccessListener {
