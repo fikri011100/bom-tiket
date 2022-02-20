@@ -9,7 +9,7 @@ import android.widget.Button
 import android.widget.NumberPicker
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class OneBottomDialogFragment(var dummyList:Array<String>):BottomSheetDialogFragment() {
+class TimeBottomDialogFragment(var dummyList:Array<String>):BottomSheetDialogFragment() {
 
     private var selected:String ?= "11:20"
 

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "411019861238",
+    "firebase_url": "https://bom-ticket-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "bom-ticket",
+    "storage_bucket": "bom-ticket.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:411019861238:android:9c441d3982ad6763e4a0d7",
+        "android_client_info": {
+          "package_name": "bncc.net.bom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "411019861238-f5geue2l6dn6583kkbbr84ffn58972h7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqAJmFT7-huqli5d9GF8Sh8gfkrvZ8lX4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "411019861238-f5geue2l6dn6583kkbbr84ffn58972h7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

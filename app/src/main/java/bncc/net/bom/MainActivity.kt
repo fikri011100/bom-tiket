@@ -17,6 +17,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, BookingTicketActivity::class.java)
             startActivity(intent)
         }
+
+        findViewById<Button>(R.id.to_profile).setOnClickListener {
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 }

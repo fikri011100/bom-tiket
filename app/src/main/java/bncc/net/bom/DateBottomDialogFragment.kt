@@ -9,7 +9,7 @@ import android.widget.Button
 import android.widget.NumberPicker
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class TwoBottomDialogFragment(var dummySeatLetter:Array<String>, var dummySeatNumber:Array<String>):BottomSheetDialogFragment() {
+class DateBottomDialogFragment(var dummySeatLetter:Array<String>, var dummySeatNumber:Array<String>):BottomSheetDialogFragment() {
 
     private var selectedLetter:String ?= "A"
     private var selectedNumber:String ?= "1"
@@ -44,6 +44,8 @@ class TwoBottomDialogFragment(var dummySeatLetter:Array<String>, var dummySeatNu
 
         view.findViewById<Button>(R.id.btn_submit_seat)?.setOnClickListener {
             (activity as BookingTicketActivity).addSeat("" + selectedLetter + selectedNumber)
+            selectedLetter = "A"
+            selectedNumber = "1"
             dismiss()
         }
     }

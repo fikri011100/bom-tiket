@@ -45,12 +45,12 @@
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_profile"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/cv_profile"
             android:text="John Doe"
             android:textColor="@color/white"
-            android:textSize="24sp"
-            android:layout_toRightOf="@+id/cv_profile"
-            android:layout_below="@+id/tv_profile"
-            android:layout_marginLeft="20dp"/>
+            android:textSize="24sp" />
 
         <ImageView
             android:id="@+id/iv_edit"
@@ -110,7 +110,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_discount_24"
-            android:layout_below="@id/cv_profile"
+            android:layout_below="@id/btn_topup"
+            android:layout_alignParentLeft="true"
             android:layout_marginTop="50dp"/>
 
         <TextView
@@ -121,7 +122,7 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:layout_toRightOf="@+id/iv_ticket"
-            android:layout_below="@id/cv_profile"
+            android:layout_below="@id/btn_topup"
             android:layout_marginTop="48dp"
             android:layout_marginLeft="10dp"/>
 
@@ -131,6 +132,16 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/iv_ticket"
             android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/tv_loading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_ticket"
+            android:layout_marginTop="20dp"
+            android:text="Loading results..."
+            android:textColor="@color/white"
+            android:textSize="16dp" />
 
     </RelativeLayout>
 

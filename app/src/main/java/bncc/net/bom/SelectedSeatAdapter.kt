@@ -34,9 +34,6 @@ class SelectedSeatAdapter(private val selectedSeats:ArrayList<String>, private v
 
         holder.btnRemove.setOnClickListener {
             selectedSeats.removeAt(position)
-//            Toast.makeText(context, "removed", Toast.LENGTH_SHORT).show()
-//            notifyItemRemoved(position)
-//            notifyItem
             listener.onRemovedData(selectedSeats.size)
             notifyDataSetChanged()
         }
