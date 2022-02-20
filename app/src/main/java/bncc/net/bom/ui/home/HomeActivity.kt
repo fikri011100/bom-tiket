@@ -11,6 +11,6 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        bottomNavigationView.setupWithNavController(nav_host_fragment.findNavController())
+//        bottomNavigationView.setupWithNavController(nav_host_fragment.findNavController())
     }
 }

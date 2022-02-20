@@ -17,7 +17,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BOM.noActionBar">
         <activity
+            android:name=".ui.profile.ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".BookingTicketPaymentSuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.booking.BookingTicketActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.payment.BookingPaymentActivity"
             android:exported="false" />
         <activity
             android:name=".signin.SignUpActivity"

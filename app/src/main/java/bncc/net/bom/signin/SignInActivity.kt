@@ -65,6 +65,7 @@ class SignInActivity : AppCompatActivity() {
                 } else {
                     if (user.password.equals(iPassword)) {
                         var intent = Intent(this@SignInActivity, HomeActivity::class.java)
+                        intent.putExtra("username", iUsername)
                         startActivity(intent)
                     } else {
                         Toast.makeText(this@SignInActivity, "Password Anda Salah",

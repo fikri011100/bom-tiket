@@ -13,6 +13,7 @@ import bncc.net.bom.api.APIClient
 import bncc.net.bom.model.FilterDialog
 import bncc.net.bom.model.Movie
 import bncc.net.bom.model.MovieResponse
+import bncc.net.bom.ui.profile.ProfileActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -29,10 +30,14 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
+        var username = intent.extras?.getString("username")
+
         adapter = MovieAdapter(Vector(), onclick ={ layout : ConstraintLayout, movie : Movie ->
             layout.setOnClickListener(View.OnClickListener {
                 var intent = Intent(it.context,MovieDetailActivity::class.java)
                 intent.putExtra("movie",movie)
+                intent.putExtra("username",username)
                 startActivity(intent)
             })
         })
@@ -53,6 +58,12 @@ class HomeActivity : AppCompatActivity() {
         btn_filter.setOnClickListener(View.OnClickListener {
             openDialog()
         })
+
+        tv_view_profile.setOnClickListener {
+            val intent = Intent(this, ProfileActivity::class.java)
+            intent.putExtra("username",username)
+            startActivity(intent)
+        }
     }
 
     fun openDialog(){
