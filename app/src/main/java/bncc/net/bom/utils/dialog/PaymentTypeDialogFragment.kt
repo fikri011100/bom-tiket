@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import bncc.net.bom.R
-import bncc.net.bom.payment.BookingPaymentActivity
+import bncc.net.bom.ui.payment.BookingPaymentActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_payment_type_dialog.*
 

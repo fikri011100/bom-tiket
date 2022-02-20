@@ -1,4 +1,4 @@
-package bncc.net.bom.model
+package bncc.net.bom.utils.dialog
 
 import android.app.AlertDialog
 import android.app.Dialog

@@ -1,4 +1,4 @@
-package bncc.net.bom.signin
+package bncc.net.bom.model
 
 class User {
     var email: String ?=""

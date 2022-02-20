@@ -1,18 +1,17 @@
-package bncc.net.bom
+package bncc.net.bom.ui.movie
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
+import bncc.net.bom.R
 import bncc.net.bom.adapter.GenreAdapter
 import bncc.net.bom.api.APIClient
 import bncc.net.bom.model.Movie
 import bncc.net.bom.model.TrailerResponse
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerListener
 import kotlinx.android.synthetic.main.activity_movie_detail.*
-import org.intellij.lang.annotations.JdkConstants
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
