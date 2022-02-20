@@ -31,9 +31,6 @@
             android:name=".ui.booking.BookingTicketActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.auth.SplashScreenActivity"
             android:exported="true">
             <intent-filter>

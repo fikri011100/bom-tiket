@@ -1,10 +1,16 @@
 <resources>
     <string name="app_name">bom</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="sign_in_account">Sign In Account</string>
     <string name="sign_in">Sign In</string>
     <string name="sign_up">Create New Account</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+    <string name="sign_up_txt">Sign Up</string>
+    <string name="register_fullname">Your full name</string>
+    <string name="register_email">Your email</string>
+    <string name="register_register">Username</string>
+    <string name="login_password">Your password</string>
+    <string name="register_confirm_password">Confirm Password</string>
+    <string name="btn_register">SIGN UP</string>
+    <string name="register_have_account">ALREADY HAVE ACCOUNT</string>
 </resources>
