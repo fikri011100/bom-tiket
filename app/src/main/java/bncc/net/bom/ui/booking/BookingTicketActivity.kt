@@ -1,19 +1,27 @@
 package bncc.net.bom.ui.booking
 
+import android.app.AlertDialog
 import android.app.DatePickerDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import bncc.net.bom.*
 import bncc.net.bom.model.Ticket
 import bncc.net.bom.ui.booking.adapter.SelectedSeatAdapter
+import bncc.net.bom.ui.payment.BookingPaymentActivity
 import bncc.net.bom.utils.dialog.DateBottomDialogFragment
 import bncc.net.bom.utils.dialog.TimeBottomDialogFragment
 import com.bumptech.glide.Glide
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -27,6 +35,7 @@ class BookingTicketActivity : AppCompatActivity() {
     private lateinit var etDate:EditText
     private lateinit var ivMovie:ImageView
     private lateinit var tvMovieTitle:TextView
+    private lateinit var tvPrice:TextView
     private var selectedSeatList = ArrayList<String>()
     private lateinit var rv_selected_seat:RecyclerView
     private lateinit var tv_selected_seat:TextView
@@ -40,14 +49,17 @@ class BookingTicketActivity : AppCompatActivity() {
         setContentView(R.layout.activity_booking_ticket)
 
         // TODO ("Butuh oper username dari pas user login buat akses firebase, ganti masukin ke variable username dibawah ini")
-        username = "1"
+        username = intent.extras?.getString("username").toString()
+
+        var price = intent.extras?.getString("price").toString()
 
         database = FirebaseDatabase.getInstance("https://bom-ticket-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference()
         // set data (image, title) data from movie detail activity
-        // TODO ("Ganti imageUrl dan titlenya. Oper dari movie detail activity")
-        imageUrl = "https://m.media-amazon.com/images/M/MV5BOTNkN2ZmMzItOTAwMy00MmM5LTg5YTgtNmE5MThkMDE2ODJiXkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_UX128_CR0,4,128,176_AL_.jpg"
+        imageUrl = intent.extras?.getString("image").toString()
         tvMovieTitle = findViewById(R.id.tv_movie_title)
-        tvMovieTitle.setText("Spiderman: Dummy Title")
+        tvMovieTitle.setText(intent.extras?.getString("title").toString())
+        tvPrice = findViewById(R.id.tv_price)
+        tvPrice.setText("IDR " + price + "/ticket")
         ivMovie = findViewById(R.id.iv_movie)
         Glide.with(this).load(imageUrl).into(ivMovie)
 
@@ -100,6 +112,10 @@ class BookingTicketActivity : AppCompatActivity() {
             seatBottomDialogFragment.show(supportFragmentManager, "Seat Bottom Dialog")
         }
 
+        findViewById<ImageButton>(R.id.back_btn).setOnClickListener {
+            finish()
+        }
+
         findViewById<Button>(R.id.book_btn).setOnClickListener {
             // get data
             val date = etDate.text
@@ -115,46 +131,23 @@ class BookingTicketActivity : AppCompatActivity() {
                 Toast.makeText(this, "Please Choose Minimum 1 Seat", Toast.LENGTH_SHORT).show()
             }
             else {
-                saveTicketToFirebase(date.toString(), time.toString())
+//                saveTicketToFirebase(date.toString(), time.toString())
+                var seatNumberText = ""
+                seatNumberText += selectedSeatList[0]
+                for (i in 1..(selectedSeatList.size - 1)) {
+                    seatNumberText = seatNumberText + ", " + selectedSeatList[i]
+                }
                 // intent to booking activity (payment)
-//                TODO("ubah tujuan intent ke booking activity (payment), trs uncomment yg dibawah ini")
-//                val intent = Intent(this, [])
-//                intent.putExtra("bookedDate", date)
-//                intent.putExtra("bookedTime", time)
-//                intent.putExtra("bookedSeat", selectedSeatList)
-//                startActivity(intent)
+                val intent = Intent(this, BookingPaymentActivity::class.java)
+                intent.putExtra("username", username)
+                intent.putExtra("title", tvMovieTitle.text)
+                intent.putExtra("price", price)
+                intent.putExtra("image", imageUrl)
+                intent.putExtra("bookedDate", date.toString())
+                intent.putExtra("bookedTime", time.toString())
+                intent.putExtra("bookedSeat", seatNumberText)
+                startActivity(intent)
             }
-        }
-
-    }
-
-    private fun saveTicketToFirebase(date:String, time:String) {
-        var ticketId = 0
-        database.child("User").child(username).get().addOnSuccessListener {
-            if(it.child("numofticket").exists()) {
-                ticketId = Integer.parseInt(it.child("numofticket").value.toString())
-                ticketId++
-            }
-            else {
-                ticketId = 1
-            }
-            val ticket = Ticket()
-            ticket.title = tvMovieTitle.text.toString()
-            ticket.date = date
-            ticket.time = time
-            ticket.ticketId = ticketId.toString()
-            ticket.image = imageUrl
-
-            var seatNumberText = ""
-            seatNumberText += selectedSeatList[0]
-            for(i in 1..(selectedSeatList.size - 1)) {
-                seatNumberText = seatNumberText + ", " + selectedSeatList[i]
-            }
-            ticket.seat = seatNumberText
-
-            database.child("User").child(username).child("tickets").child(ticketId.toString()).setValue(ticket)
-            database.child("User").child(username).child("numofticket").setValue(ticketId.toString())
-        }.addOnFailureListener {
         }
 
     }

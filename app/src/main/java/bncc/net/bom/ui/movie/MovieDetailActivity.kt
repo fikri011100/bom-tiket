@@ -58,7 +58,7 @@ class MovieDetailActivity : AppCompatActivity() {
                 if(movie.price==null ||movie.price==0){
                     movie.price = (((Math.random()*100000).toInt()) + 10000)
                 }
-                tv_desc.text = movie.plot +"\n\nRp"+movie.price
+                tv_desc.text = movie.plot +"\n\nRp. "+movie.price
             }
 
             override fun onFailure(call: Call<TrailerResponse>, t: Throwable) {

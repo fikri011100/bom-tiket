@@ -1,5 +1,6 @@
 package bncc.net.bom
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,7 @@ import bncc.net.bom.adapter.GenreAdapter
 import bncc.net.bom.api.APIClient
 import bncc.net.bom.model.Movie
 import bncc.net.bom.model.TrailerResponse
+import bncc.net.bom.ui.booking.BookingTicketActivity
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerListener
@@ -28,6 +30,8 @@ class MovieDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_detail)
+
+        var username = intent.extras?.getString("username")
         movie = intent.getSerializableExtra("movie") as Movie
         retrofit = Retrofit.Builder().addConverterFactory(GsonConverterFactory.create()).baseUrl("https://imdb-api.com/API/").build();
 
@@ -59,7 +63,7 @@ class MovieDetailActivity : AppCompatActivity() {
                 if(movie.price==null ||movie.price==0){
                     movie.price = (((Math.random()*100000).toInt()) + 10000)
                 }
-                tv_desc.text = movie.plot +"\n\nRp"+movie.price
+                tv_desc.text = movie.plot +"\n\nRp. "+movie.price
             }
 
             override fun onFailure(call: Call<TrailerResponse>, t: Throwable) {
@@ -67,6 +71,15 @@ class MovieDetailActivity : AppCompatActivity() {
             }
 
         })
+
+        btn_booking.setOnClickListener {
+            val intent = Intent(this, BookingTicketActivity::class.java)
+            intent.putExtra("username", username)
+            intent.putExtra("image", movie.image)
+            intent.putExtra("title", movie.title)
+            intent.putExtra("price", movie.price.toString())
+            startActivity(intent)
+        }
 
     }
 }

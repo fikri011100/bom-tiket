@@ -1,52 +1,54 @@
 package bncc.net.bom.ui.profile
 
+import android.content.Intent
+import android.graphics.Movie
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
+import android.util.Log
 import android.view.View
-import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
-import bncc.net.bom.ui.booking.BookedTicketAdapter
+import androidx.recyclerview.widget.RecyclerView
 import bncc.net.bom.R
 import bncc.net.bom.model.Ticket
+import bncc.net.bom.signin.SignInActivity
+import bncc.net.bom.ui.booking.BookedTicketAdapter
 import com.bumptech.glide.Glide
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.fragment_profile.*
+import kotlinx.android.synthetic.main.activity_profile.*
 
-
-class ProfileFragment : Fragment() {
+class ProfileActivity : AppCompatActivity() {
 
     private val bookedTicketList = ArrayList<Ticket>()
     private lateinit var database: DatabaseReference
     private lateinit var ticketAdapter: BookedTicketAdapter
+    private lateinit var tvLoading:TextView
+    private lateinit var ivProfile:ImageView
+    private lateinit var tvName:TextView
+    private lateinit var tvBalance:TextView
     private var numOfTicket = 0
     private lateinit var username:String
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
-    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_profile)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        username = "1"
+        var username = intent.extras?.getString("username").toString()
 
         database = FirebaseDatabase.getInstance("https://bom-ticket-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference()
-
-
-
-
-        tv_loading.visibility = View.VISIBLE
-        tv_loading.text = "Loading result..."
+        tvLoading = findViewById(R.id.tv_loading)
+        ivProfile = findViewById(R.id.iv_profile)
+        tvName = findViewById(R.id.tv_name)
+        tvBalance = findViewById(R.id.tv_balance)
+        tvLoading.visibility = View.VISIBLE
+        tvLoading.text = "Loading result..."
 
         database.child("User").child(username).get().addOnSuccessListener {
-            tv_name.text = it.child("nama").value.toString()
-            tv_balance.text = "Rp.  " + it.child("saldo").value.toString()
-            Glide.with(this).load(it.child("url").value.toString()).into(iv_profile)
+            tvName.text = it.child("nama").value.toString()
+            tvBalance.text = "IDR " + it.child("saldo").value.toString()
+            Glide.with(this).load(it.child("url").value.toString()).into(ivProfile)
         }.addOnFailureListener {
 
         }
@@ -67,7 +69,7 @@ class ProfileFragment : Fragment() {
 
                         bookedTicketList.add(ticket)
                     }
-                    tv_loading.visibility = View.INVISIBLE
+                    tvLoading.visibility = View.INVISIBLE
                     ticketAdapter.notifyDataSetChanged()
 
                 }.addOnFailureListener {
@@ -75,13 +77,24 @@ class ProfileFragment : Fragment() {
                 }
             }
             else {
-                tv_loading.text = "You have no booked ticket"
+                tvLoading.text = "You have no booked ticket"
             }
         }.addOnFailureListener {
         }
 
-        rv_booked_ticket.layoutManager = LinearLayoutManager(requireContext())
+        val rv_booked_ticket = findViewById<RecyclerView>(R.id.rv_booked_ticket)
+        rv_booked_ticket.layoutManager = LinearLayoutManager(this)
         ticketAdapter = BookedTicketAdapter(bookedTicketList)
         rv_booked_ticket.adapter = ticketAdapter
+
+        back_btn.setOnClickListener {
+            finish()
+        }
+
+        btn_signout.setOnClickListener {
+            val intent = Intent(this, SignInActivity::class.java)
+            startActivity(intent)
+        }
     }
+
 }

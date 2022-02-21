@@ -10,9 +10,9 @@ import retrofit2.http.Query
 interface APIClient {
 
     //?title=a&title_type=tv_movie&genres=action&sort=alpha,asc
-    @GET("AdvancedSearch/k_2hwe8dbe")
+    @GET("AdvancedSearch/k_avns8u1u")
     fun getMovies(@Query("title") title : String?,@Query("user_rating") user_rating: String?, @Query("title_type") title_type : String, @Query("genres") genres : String?, @Query("sort") sort : String?) : Call<MovieResponse>
-    @GET("YouTubeTrailer/k_2hwe8dbe/{id}")
+    @GET("YouTubeTrailer/k_avns8u1u/{id}")
     fun getTrailer(@Path("id") id : String) : Call<TrailerResponse>
 
 }

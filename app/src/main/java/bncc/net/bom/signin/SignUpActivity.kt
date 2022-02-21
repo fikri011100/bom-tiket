@@ -32,7 +32,7 @@ class SignUpActivity : AppCompatActivity() {
             database = FirebaseDatabase.getInstance().getReference("User")
             // Database Firebase
             database = FirebaseDatabase.getInstance("https://bom-ticket-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("User")
-            val Users = User(email, name, password, "", "", username)
+            val Users = User(email, name, password, "0", "", username)
             database.child(username).setValue(Users).addOnSuccessListener {
                 binding.etFullname.text.clear()
                 binding.etEmail.text.clear()
@@ -40,7 +40,9 @@ class SignUpActivity : AppCompatActivity() {
                 binding.etPassword.text.clear()
 
                 Toast.makeText(this, "Successfully Saved", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this, HomeActivity::class.java))
+                val intent = Intent(this, HomeActivity::class.java)
+                intent.putExtra("username", username)
+                startActivity(intent)
             }.addOnFailureListener {
                 Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
             }

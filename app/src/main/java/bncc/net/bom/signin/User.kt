@@ -1,6 +1,6 @@
 package bncc.net.bom.signin
 
-class User (val email : String? = null, val nama : String? = null, val password : String? = null,  val saldo : String? = "", val url : String? = "", val username : String? = null)
+class User (val email : String? = null, val nama : String? = null, val password : String? = null,  val saldo : String? = "0", val url : String? = "", val username : String? = null)
 //{
 //    var email: String ?=""
 //    var nama: String ?=""
