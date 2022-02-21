@@ -31,7 +31,11 @@ class BookingPaymentActivity : AppCompatActivity(){
         var convertSeat = bookedSeat?.split(", ")?.toTypedArray()
         var totalPayment = Integer.parseInt(intent.extras?.getString("price")) * (convertSeat?.size
             ?: 0)
+<<<<<<< HEAD
         tv_payment.text = "Rp. " + totalPayment
+=======
+        tv_payment.text = "IDR " + totalPayment
+>>>>>>> 4ef038087c999cdc54795b77217bbe05e67a2f4d
 
         img_back.setOnClickListener {
             onBackPressed()
